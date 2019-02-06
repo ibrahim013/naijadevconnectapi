@@ -3,12 +3,12 @@ import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
-
+import User from '../../../models/User'
 import validateRegisterInput from '../../../validators/register';
 import  validateLoginInput from '../../../validators/login';
 
 const keys = require('../../../../config/keys');
-const User = require('../../../models/User');
+
 
 const router = express.Router();
 
@@ -44,7 +44,7 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then(user => res.status(200).json(user))
-            .catch(err => console.log(err));
+            .catch(err => res.status(500).json({err}));
         });
       });
     }
@@ -91,7 +91,7 @@ router.post("/login", (req, res) => {
         );
       });
     })
-    .catch(err => console.log(error));
+    .catch(err => res.status(500).json({err}));;
 });
 
 /**
