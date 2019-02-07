@@ -1,11 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require("mongoose");
-const passport = require("passport");
+import express from 'express';
+import passport from 'passport';
+import Post from '../../../models/Post'
+import Profile from '../../../models/Profile'
 
-//Load post model
-const Post = require("../../../models/Post");
-const Profile = require("../../../models/Profile");
+
+const router = express.Router();
 //Validator
 const validatePostInput = require("../../../validators/post.js");
 

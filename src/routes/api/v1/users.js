@@ -65,13 +65,13 @@ router.post("/login", (req, res) => {
   User.findOne({ email })
     .then(user => {
       if (!user) {
-        return res.status(404).json({ password: "Username or password is Incorrect" });
+        return res.status(404).json({ msg: "Username or password is Incorrect" });
       }
       bcrypt.compare(password, user.password).then(isMatch => {
         if (!isMatch) {
           return res
             .status(400)
-            .json({ status: "fail", password: "Username or password is Incorrect" });
+            .json({ status: "fail", msg: "Username or password is Incorrect" });
         }
         const payload = {
           id: user.id,
