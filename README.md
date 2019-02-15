@@ -1,4 +1,4 @@
-### SMS Management App
+### Naija Dev Connect API
 
 ### Description
 Naija dev connect is an application that let developers connect and sheare information with each other.
